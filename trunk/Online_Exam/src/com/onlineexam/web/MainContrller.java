@@ -1,7 +1,12 @@
 package com.onlineexam.web;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
 public class MainContrller {
-public void test(){
-	System.out.println("test");
-}
+	@RequestMapping("/")
+	public String homePage() {
+		return "login";
+	}
 }
