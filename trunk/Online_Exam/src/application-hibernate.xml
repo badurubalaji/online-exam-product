@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config/>
+<context:component-scan base-package="com"/>
+
+
+<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+  
+	<!-- Configurer that replaces ${...} placeholders with values from a properties file -->
+	<!-- (in this case, JDBC-related settings for the dataSource definition below) -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location"><value>classpath:jdbc.properties</value></property>
+	</bean>
+
+	<!-- Local DataSource that works in any environment -->
+	<!-- Note that DriverManagerDataSource does not pool; it is not intended for production -->
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"><value>${jdbc.driverClassName}</value></property>
+		<property name="url"><value>${jdbc.url}</value></property>
+		<property name="username"><value>${jdbc.username}</value></property>
+		<property name="password"><value>${jdbc.password}</value></property>
+
+	</bean>
+
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" autowire="byName">
+		<property name="mappingResources">
+		<list>
+			<value>com/xyzcompany/onlineexam/model/Admin.hbm.xml</value>
+			
+		</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+		        <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+		        <prop key="hibernate.use_sql_comments">${hibernate.use_sql_comments}</prop>
+			</props>
+		</property>
+	</bean>
+	<!--
+	 Data access object: Hibernate implementation.
+    -->
+
+	<bean id="genericDao" class="com.xyzcompany.onlineexam.dao.hibernate.GenericDaoHibernateImpl" autowire="byName"/>
+		
+	<!--
+	 Service object: Hibernate implementation.
+    -->
+    
+    <!-- example  <bean id="adminService" class="com.xyzcompany.onlineexam.service.hibernate.HibernateAdminServiceImpl" autowire="byName"/> -->
+
+</beans>
