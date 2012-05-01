@@ -9,8 +9,8 @@ public class MainContrller {
 	public String homePage() {
 		return "login";
 	}
-                   @RequestMapping("/testbyramesh")
-	public String homePage() {
-		return "testbyramesh";
+     @RequestMapping("/testbyramesh")
+	public String testBySanthosh() {
+		return "testBySanthosh";
 	}
 }
