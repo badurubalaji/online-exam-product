@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping package="com.onlineexam.model">
+  <class name="Test" table="test">
+	<id name="testId" type="long" column="test_id">
+		<generator class="increment"/>  	
+  	</id>
+  	<property name="testSubject" column="test_subject" type="string"/>
+  	<property name="testLevel" column="test_level" type="int"/>
+  	<property name="testTotalNoOfQuestions" column="test_no_of_questions" type="int"/>
+  	<property name="tesPrice" column="test_price" type="double"/>
+  	 <set name="testQuestions" table="test_question"
+                inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="test_id" not-null="true" />
+            </key>
+            <many-to-many class="Question" />
+        </set> 	
+  </class>
+</hibernate-mapping>
