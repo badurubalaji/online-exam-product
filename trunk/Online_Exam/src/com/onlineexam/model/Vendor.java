@@ -7,6 +7,13 @@ public class Vendor {
 	private String vendorName;
 	private String vendorPassword;
 	private Set<VendorStudentTest> tests;
+	private boolean isVendorActivate;
+	public boolean isVendorActivate() {
+		return isVendorActivate;
+	}
+	public void setVendorActivate(boolean isVendorActivate) {
+		this.isVendorActivate = isVendorActivate;
+	}
 	public Set<VendorStudentTest> getTests() {
 		return tests;
 	}
