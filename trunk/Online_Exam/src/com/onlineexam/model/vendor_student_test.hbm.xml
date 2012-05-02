@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping package="com.xyzcompany.onlineexam.model">
+  <class name="Vendor" table="vendor">
+	<composite-id name="vendorStudentTestPK"
+        class="com.onlineexam.model.VendorStudentTestPK">
+        <key-property name="vendorId" column="vendor_id"
+            type="java.lang.Long" />
+        <key-property name="studentId" column="student_id"
+            type="java.lang.Long" />
+        <key-property name="testId" column="test_id" type="java.lang.Long" />
+    </composite-id>
+    
+	<many-to-one name="vendors" class="Vendor" insert="false" update="false"/>
+    <many-to-one name="students" class="Student" insert="false" update="false"/>
+    <many-to-one name="tests" class="Test" insert="false" update="false"/>
+  	
+  </class>
+</hibernate-mapping>

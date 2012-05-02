@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping package="com.xyzcompany.onlineexam.model">
+  <class name="Vendor" table="vendor">
+	<id name="vendorId" type="long" column="vendor_id">
+		<generator class="increment"/>  	
+  	</id>
+  	<property name="vendorName" column="vendor_name" type="string"/>
+  	<property name="vendorPassword" column="vendor_password" type="string"/>
+  	<set name="tests" table="vendor_student_test"
+                inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="vendor_id" not-null="true" />
+            </key>
+            <one-to-many class="VendorStudentTest" />
+        </set>
+  	
+  </class>
+</hibernate-mapping>
