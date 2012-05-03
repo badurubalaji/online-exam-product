@@ -32,7 +32,14 @@
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" autowire="byName">
 		<property name="mappingResources">
 		<list>
-			<value>com/xyzcompany/onlineexam/model/Admin.hbm.xml</value>
+		<!-- add all hbm files here -->
+			<value>com/onlineexam/model/admin.hbm.xml</value>
+			<value>com/onlineexam/model/vendor.hbm.xml</value>
+			<value>com/onlineexam/model/vendor_student_test.hbm.xml</value>
+			<value>com/onlineexam/model/student.hbm.xml</value>
+			<value>com/onlineexam/model/question.hbm.xml</value>
+			
+			
 			
 		</list>
 		</property>
@@ -49,8 +56,9 @@
 	 Data access object: Hibernate implementation.
     -->
 
-	<bean id="genericDao" class="com.xyzcompany.onlineexam.dao.hibernate.GenericDaoHibernateImpl" autowire="byName"/>
-		
+	<bean id="genericDao" class="com.onlineexam.dao.hibernate.GenericDaoHibernateImpl" autowire="byName"/>
+	<bean id="vendorDao" class="com.onlineexam.dao.hibernate.HibernateVendorDao" autowire="byName"/>
+
 	<!--
 	 Service object: Hibernate implementation.
     -->
