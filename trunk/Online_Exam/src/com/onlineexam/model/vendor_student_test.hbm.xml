@@ -10,9 +10,9 @@
         <key-property name="testId" column="test_id" type="java.lang.Long" />
     </composite-id>
     
-	<many-to-one name="vendors" class="Vendor" insert="false" update="false"/>
-    <many-to-one name="students" class="Student" insert="false" update="false"/>
-    <many-to-one name="tests" class="Test" insert="false" update="false"/>
+	<many-to-one name="vendor" class="Vendor" insert="false" update="false"/>
+    <many-to-one name="student" class="Student" insert="false" update="false"/>
+    <many-to-one name="test" class="Test" insert="false" update="false"/>
   	
   </class>
 </hibernate-mapping>

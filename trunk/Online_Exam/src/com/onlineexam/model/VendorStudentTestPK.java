@@ -1,29 +1,45 @@
 package com.onlineexam.model;
 
 public class VendorStudentTestPK {
-	private Long vendorId;
-	private Long studentId;
-	private Long testId;
+	private Vendor vendor;
+	private Student student;
+	private Test test;
 	
-	public VendorStudentTestPK(Long vendorId, Long studentId, Long testId) {
-		super();
-		this.vendorId = vendorId;
-		this.studentId = studentId;
-		this.testId = testId;
-	}
 	public VendorStudentTestPK() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public VendorStudentTestPK(Vendor vendor, Student student, Test test) {
+		super();
+		this.vendor = vendor;
+		this.student = student;
+		this.test = test;
+	}
+	public Vendor getVendor() {
+		return vendor;
+	}
+	public void setVendor(Vendor vendor) {
+		this.vendor = vendor;
+	}
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	public Test getTest() {
+		return test;
+	}
+	public void setTest(Test test) {
+		this.test = test;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((studentId == null) ? 0 : studentId.hashCode());
-		result = prime * result + ((testId == null) ? 0 : testId.hashCode());
-		result = prime * result
-				+ ((vendorId == null) ? 0 : vendorId.hashCode());
+		result = prime * result + ((student == null) ? 0 : student.hashCode());
+		result = prime * result + ((test == null) ? 0 : test.hashCode());
+		result = prime * result + ((vendor == null) ? 0 : vendor.hashCode());
 		return result;
 	}
 	@Override
@@ -35,20 +51,20 @@ public class VendorStudentTestPK {
 		if (!(obj instanceof VendorStudentTestPK))
 			return false;
 		VendorStudentTestPK other = (VendorStudentTestPK) obj;
-		if (studentId == null) {
-			if (other.studentId != null)
+		if (student == null) {
+			if (other.student != null)
 				return false;
-		} else if (!studentId.equals(other.studentId))
+		} else if (!student.equals(other.student))
 			return false;
-		if (testId == null) {
-			if (other.testId != null)
+		if (test == null) {
+			if (other.test != null)
 				return false;
-		} else if (!testId.equals(other.testId))
+		} else if (!test.equals(other.test))
 			return false;
-		if (vendorId == null) {
-			if (other.vendorId != null)
+		if (vendor == null) {
+			if (other.vendor != null)
 				return false;
-		} else if (!vendorId.equals(other.vendorId))
+		} else if (!vendor.equals(other.vendor))
 			return false;
 		return true;
 	}
