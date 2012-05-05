@@ -22,6 +22,11 @@ public class GenericDaoHibernateImpl<T, PK extends Serializable> implements
 			return sessionFactory.getCurrentSession();
 	}
 
+	public GenericDaoHibernateImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public GenericDaoHibernateImpl(Class<T> type) {
 		this.type = type;
 	}
