@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping package="com.onlineexam.model">
+<class name="Test" table="test">
+<id name="test_Id" type="java.lang.Integer">
+<column name="test_Id"/>
+<generator class="assigned"/>
+</id>
+<property name="subject" type="java.lang.String" column="subject"/>
+<property name="duration" type="java.lang.Integer" column="duration"/>
+<property name="price" type="java.lang.Double" column="price"/>
+<property name="total_No_Of_Questions" type="java.lang.Integer" column="total_No_Of_Questions"/>
+<property name="purchased_Date" type="java.util.Date" column="purchased_Date"/>
+<property name="assigned_Date" type="java.util.Date" column="assigned_Date"/>
+<property name="assigned_To" type="java.lang.String" column="assigned_To"/>
+<property name="test_TakenDate" type="java.util.Date" column="test_TakenDate"/>
+<property name="result" type="java.lang.Integer" column="result"/>
+<many-to-one name="vendorDetails" column="vendor_Id"/>
+</class>
+</hibernate-mapping>

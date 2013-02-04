@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping package="com.onlineexam.model">
+<class name="Question" table="question">
+<id name="ques_Id" type="java.lang.Integer">
+<column name="ques_Id"/>
+<generator class="increment"/>
+</id>
+<property name="question_Text" type="java.lang.String" column="question_Text"/>
+<property name="option1" type="java.lang.String" column="option1"/>
+<property name="option2" type="java.lang.String" column="option2"/>
+<property name="option3" type="java.lang.String" column="option3"/>
+<property name="option4" type="java.lang.String" column="option4"/>
+<property name="correct_Option" type="java.lang.String" column="correct_Option"/>
+<property name="subject" type="java.lang.String" column="subject"/>
+</class>
+</hibernate-mapping>
