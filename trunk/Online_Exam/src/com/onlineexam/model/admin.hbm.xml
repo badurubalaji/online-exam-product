@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping package="com.onlineexam.model">
+<class name="Admin" table="admin">
+<id name="admin_Id" type="java.lang.Integer">
+<column name="Admin_Id"/>
+<generator class="assigned"/>
+</id>
+<property name="admin_Name" type="java.lang.String" column="Admin_Name"/>
+<property name="admin_Password" type="java.lang.String" column="Admin_Password"/>
+</class>
+</hibernate-mapping>

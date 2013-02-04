@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping package="com.onlineexam.model">
+<class name="Vendor" table="vendor">
+<id name="vendor_Id" type="java.lang.Integer">
+<column name="Vendor_Id"/>
+<generator class="increment"/>
+</id>
+<property name="vendor__First_Name" type="java.lang.String" column="vendor__First_Name"/>
+<property name="vendor__Last_Name" type="java.lang.String" column="vendor__Last_Name"/>
+<property name="vendor_Password" type="java.lang.String" column="vendor_Password"/>
+<property name="vendor_EmailId" type="java.lang.String" column="Vendor_Email_Id"/>
+<property name="is_ACTIVE" type="java.lang.String" column="is_ACTIVE"/>
+<set name="tests">
+<key column="vendor_Id"/>
+<one-to-many class="Test"/>
+</set>
+</class>
+</hibernate-mapping>
